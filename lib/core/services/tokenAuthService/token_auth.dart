@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:grippable_reddit/core/services/httpServiceProvider/api_response.dart';
 import 'package:grippable_reddit/core/services/httpServiceProvider/http_service.dart';
 import 'package:grippable_reddit/core/services/httpServiceProvider/http_service_provider.dart';
@@ -10,10 +14,16 @@ class TokenAuthService {
 
   TokenAuthService(this._httpService);
 
-  Future<ApiResponse> getAccessToken() async {
-    return await _httpService.post(
-      '/api/v1/access_token',
-    );
+  Future<ApiResponse> getAccessToken(Map<String, dynamic> payload) async {
+    final clientId = dotenv.env['CLIENT_ID'];
+    const clientSecret = "";
+
+    return await _httpService.post('/v1/access_token',
+        data: payload,
+        options: Options(headers: {
+          'Authorization':
+              'Basic ${base64Encode(utf8.encode('$clientId:$clientSecret'))}'
+        }));
   }
 }
 

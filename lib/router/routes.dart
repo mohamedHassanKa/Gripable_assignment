@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:grippable_reddit/components/home_screen_scaffold.dart';
 import 'package:grippable_reddit/screens/HotListingsScreen/hot_listings_screen.dart';
+import 'package:grippable_reddit/screens/LoginScreen/login_screen.dart';
 import 'package:grippable_reddit/screens/NewListingScreen/new_listing_screen.dart';
 import 'package:grippable_reddit/screens/RisingListingsScreen/rising_listing_screen.dart';
 
@@ -9,6 +10,11 @@ final GlobalKey<NavigatorState> _homeNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'home');
 
 final appRoutes = [
+  GoRoute(
+    path: LoginScreen.routePath,
+    name: LoginScreen.routePath,
+    builder: (context, state) => const LoginScreen(),
+  ),
   ShellRoute(
       navigatorKey: _homeNavigatorKey,
       builder: (BuildContext context, GoRouterState state, Widget child) {

@@ -21,6 +21,12 @@ class HttpService {
 
     _dio = Dio(httpOptions);
 
+    //default headers
+    _dio!.options.headers = {
+      'User-Agent': 'app',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    };
+
     if (headers?.isNotEmpty ?? false) {
       _dio!.options.headers.addAll(headers as Map<String, dynamic>);
     }

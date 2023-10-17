@@ -1,1 +1,1 @@
-const apiBaseUrl = "https://api.themoviedb.org/3";
+const apiBaseUrl = "https://www.reddit.com/api";
