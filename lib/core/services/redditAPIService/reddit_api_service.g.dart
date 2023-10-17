@@ -6,7 +6,7 @@ part of 'reddit_api_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$redditApiServiceHash() => r'a7d3a48ef71d5bac3f46299c3d7c2ea16b07b5ee';
+String _$redditApiServiceHash() => r'1bc5ea33ea4f96dfc6e6f0eafa736ae4ba7541ea';
 
 /// See also [redditApiService].
 @ProviderFor(redditApiService)

@@ -24,7 +24,7 @@ class HttpService {
     //default headers
     _dio!.options.headers = {
       'User-Agent': 'app',
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json',
     };
 
     if (headers?.isNotEmpty ?? false) {

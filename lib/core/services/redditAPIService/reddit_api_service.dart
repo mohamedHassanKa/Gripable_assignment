@@ -10,25 +10,47 @@ class RedditAPIService {
 
   RedditAPIService(this._httpService);
 
-  Future<ApiResponse> getHotListings() async {
+  Future<ApiResponse> getHotListings({
+    String? after,
+    int? limit = 10,
+  }) async {
     return await _httpService.get(
-      '/hot.json',
+      '/r/FlutterDev/hot.json',
+      queryParameters: {
+        'after': after,
+        'limit': limit,
+      },
     );
   }
 
-  Future<ApiResponse> getNewListings() async {
+  Future<ApiResponse> getNewListings({
+    String? after,
+    int? limit = 10,
+  }) async {
     return await _httpService.get(
-      '/new.json',
+      '/v1/r/FlutterDev/new.json',
+      queryParameters: {
+        'after': after,
+        'limit': limit,
+      },
     );
   }
 
-  Future<ApiResponse> getRisingListings() async {
-    return await _httpService.get(
-      '/rising.json',
-    );
+  Future<ApiResponse> getRisingListings({
+    String? after,
+    int? limit = 10,
+  }) async {
+    return await _httpService
+        .get('/v1/r/FlutterDev/rising.json', queryParameters: {
+      'after': after,
+      'limit': limit,
+    });
   }
 }
 
 @riverpod
-RedditAPIService redditApiService(RedditApiServiceRef ref) =>
-    RedditAPIService(ref.watch(httpServiceProvider()));
+RedditAPIService redditApiService(RedditApiServiceRef ref) {
+  final httpService = ref.watch(httpServiceProvider);
+
+  return RedditAPIService(httpService);
+}

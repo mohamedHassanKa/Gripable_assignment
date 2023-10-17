@@ -1,1 +1,1 @@
-const apiBaseUrl = "https://www.reddit.com/api";
+const apiBaseUrl = "https://www.reddit.com";

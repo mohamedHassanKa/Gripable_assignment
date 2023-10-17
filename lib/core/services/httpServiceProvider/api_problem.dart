@@ -33,17 +33,23 @@ class ApiProblem {
                   data: "bad certificate");
               break;
             case DioExceptionType.badResponse:
-              final message = error.response?.data["message"];
+              var message = "an error occurred";
+              if (error.response?.data != null && error.response?.data is Map) {
+                message = error.response?.data.containsKey("message")
+                    ? error.response?.data["message"]
+                    : "";
+              }
 
               // print(error.request.headers.toString());
               switch (error.response?.statusCode) {
                 case 400:
+                case 403:
                   apiResponse =
                       ApiResponse(ApiResponseKind.badRequest, data: message);
                   break;
                 case 401:
                   apiResponse = ApiResponse(ApiResponseKind.unauthorisedRequest,
-                      data: message);
+                      data: "Unauthorised request");
 
                   break;
                 case 404:
