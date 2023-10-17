@@ -1,19 +1,4 @@
-import 'dart:async';
-import 'dart:developer';
-
-import 'package:bloc/bloc.dart';
-import 'package:flutter/widgets.dart';
-
-import 'package:gripable_assignment/bootstrap/app_bloc_observer.dart';
-
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
-
-  Bloc.observer = const AppBlocObserver();
-
-  // Add cross-flavor configuration here
-
-  runApp(await builder());
-}
+export 'app_bloc_observer.dart';
+export 'bootstrap_app.dart'; 
+export 'flavor_config.dart'; 
+export 'injection_container.dart'; 
