@@ -1,1 +1,1 @@
-const placeholderImage = "https://placehold.co/600x100.png?text=-";
+const apiBaseUrl = "https://api.themoviedb.org/3";
