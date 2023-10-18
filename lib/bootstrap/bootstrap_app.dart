@@ -8,7 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:gripable_assignment/bootstrap/app_bloc_observer.dart';
 import 'package:gripable_assignment/bootstrap/flavor_config.dart';
 import 'package:gripable_assignment/bootstrap/injection_container.dart';
-import 'package:gripable_assignment/feed/data/datasource/feed_remote_source.dart';
+import 'package:gripable_assignment/feed/data/datasource/remote_feed_data_source.dart';
 import 'package:gripable_assignment/feed/domain/repository/feed_repository.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
