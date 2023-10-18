@@ -21,7 +21,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   /// Initalise API and repository layers
   final options = BaseOptions(baseUrl: FlavorConfig.getInstance().apiBaseUrl);
   final dio = Dio(options);
-  final feedDataSource = FeedRemoteSource(dio: dio);
+  final feedDataSource = RemoteFeedDataSource(dio: dio);
   final feedRepository = FeedRepository(dataSource: feedDataSource);
 
   runApp(RootRestorationScope(

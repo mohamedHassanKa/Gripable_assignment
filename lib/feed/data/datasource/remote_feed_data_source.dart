@@ -1,13 +1,12 @@
 import 'package:gripable_assignment/core/types/sort_type.dart';
+import 'package:gripable_assignment/feed/data/models/feed_data.dart';
 
-import 'package:gripable_assignment/feed/data/models/models.dart';
-
-/// {@template feed_datq_source}
+/// {@template base_feed_data_source}
 /// API layer to fetch feed data
 /// {@endtemplate}
-abstract class FeedDataSource {
-  /// {@macro feed_data_source}
-  const FeedDataSource();
+abstract class BaseFeedDataSource {
+  /// {@macro base_feed_data_source}
+  const BaseFeedDataSource();
 
   /// Returns a list of [FeedData] based on type
   Future<FeedData> fetchPosts(
