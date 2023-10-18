@@ -7,7 +7,6 @@ import 'package:gripable_assignment/feed/data/models/feed_data.dart';
 /// Actual REST Data Source to fetch posts
 /// {@endtemplate}
 class RemoteFeedDataSource implements BaseFeedDataSource {
-
   /// {@macro remote_feed_data_source}
   const RemoteFeedDataSource({required this.dio});
 

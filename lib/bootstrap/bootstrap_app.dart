@@ -24,11 +24,13 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   final feedDataSource = RemoteFeedDataSource(dio: dio);
   final feedRepository = FeedRepository(dataSource: feedDataSource);
 
-  runApp(RootRestorationScope(
-    restorationId: 'root',
-    child: InjectionContainer(
-      feedRepository: feedRepository,
-      child: await builder(),
+  runApp(
+    RootRestorationScope(
+      restorationId: 'root',
+      child: InjectionContainer(
+        feedRepository: feedRepository,
+        child: await builder(),
+      ),
     ),
-  ));
+  );
 }
