@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gripable_assignment/l10n/l10n.dart';
+import 'package:gripable_assignment/core/l10n/l10n.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
